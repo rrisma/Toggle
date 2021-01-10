@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.card-toggle {
+    position: relative;
+}
+input[type='checkbox'] {
+    position: absolute;
+    visibility: hidden;
+}
+label {
+    cursor: pointer;
+    text-indent: -99px;
+    width: 70px;
+    height: 40px;
+    background-color: black;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    top: 40px;
+    right: 3px;
+    -webkit-transform: rotate(-90deg);
+}
+label::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: pink;
+    border-radius: 50%;
+    transition: all .50s;
+}
+input[type='checkbox']:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+    background-color: black;
+}
+input[type='checkbox']:checked + label {
+    background-color: pink;
+}
+.card-toggles {
+    background-image: url('img/black.jpg');
+    background-repeat: no-repeat;
+    height: 350px;
+    width: 500px;
+}
+input[type='checkbox']:checked + label ~ .card-toggles {
+    background-image: url('img/pink.jpg');
+}
